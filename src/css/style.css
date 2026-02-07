@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+@import 'variables.css';
+
+/* Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Background Animation */
+.noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJnoiPjxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIwLjY1IiBudW1PY3RhdmVzPSIzIiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI24pIiBvcGFjaXR5PSIwLjA1Ii8+PC9zdmc+');
+    pointer-events: none;
+    z-index: 1;
+}
+
+.ambient-glow {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: var(--gradient-glow);
+    z-index: 0;
+    animation: pulse 8s ease-in-out infinite alternate;
+}
+
+/* Bento Grid Layout */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: var(--gap-md);
+    width: 90vw;
+    height: 85vh;
+    max-width: 1200px;
+    z-index: 2;
+    position: relative;
+}
+
+.bento-item {
+    background: var(--bento-bg);
+    border: var(--bento-border);
+    border-radius: var(--bento-radius);
+    padding: var(--gap-lg);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.bento-item:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Typography & Content */
+h1 {
+    font-size: 4rem;
+    line-height: 0.9;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    background: linear-gradient(to right, #fff, #a0a0a0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.kinetic-type {
+    font-size: 8rem;
+    font-weight: 900;
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: 0.1;
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Specific Areas */
+.area-hero {
+    grid-column: span 2;
+    grid-row: span 2;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.area-countdown {
+    grid-column: span 1;
+    grid-row: span 1;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-mono);
+}
+
+.area-waitlist {
+    grid-column: span 1;
+    grid-row: span 2;
+    justify-content: space-between;
+}
+
+.area-status {
+    grid-column: span 2;
+    grid-row: span 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.area-social {
+    grid-column: span 1;
+    grid-row: span 1;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Components */
+.countdown-timer {
+    font-size: 2rem;
+    color: var(--accent-primary);
+    text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+}
+
+.waitlist-form input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #fff;
+    margin-bottom: 10px;
+    font-family: var(--font-mono);
+}
+
+.waitlist-form button {
+    width: 100%;
+    padding: 12px;
+    background: var(--accent-secondary);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: box-shadow 0.2s;
+}
+
+.waitlist-form button:hover {
+    box-shadow: 0 0 15px rgba(189, 0, 255, 0.6);
+}
+
+.waitlist-counter {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: auto;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { opacity: 0.5; transform: scale(1); }
+    100% { opacity: 0.8; transform: scale(1.1); }
+}
+
+@media (max-width: 900px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        height: auto;
+        overflow-y: auto;
+        padding: 20px 0;
+    }
+    .area-hero, .area-waitlist, .area-status, .area-countdown, .area-social {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+    body {
+        overflow-y: auto;
+        display: block;
+    }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CC_GodMode // Project Alpha</title>
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+
+    <!-- Ambient Backgrounds -->
+    <div class="ambient-glow"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Main Grid -->
+    <main class="bento-grid">
+        <!-- Hero Section -->
+        <div class="bento-item area-hero">
+            <div class="hero-content">
+                <p style="color: var(--accent-primary); font-family: var(--font-mono); margin-bottom: 10px;">// SYSTEM_READY</p>
+                <h1>Project<br>GodMode</h1>
+                <p style="color: var(--text-secondary); margin-top: 20px; max-width: 400px;">
+                    Next-generation agentic interfaces. Pure html5 speed. No frameworks. Just raw performance.
+                </p>
+            </div>
+            <div class="kinetic-type">SPEED</div>
+        </div>
+
+        <!-- Countdown -->
+        <div class="bento-item area-countdown">
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 10px;">T-MINUS LAUNCH</p>
+            <div id="countdown" class="countdown-timer">00:00:00:00</div>
+        </div>
+
+        <!-- Waitlist -->
+        <div class="bento-item area-waitlist">
+            <div>
+                <h3 style="margin-bottom: 15px;">Early Access</h3>
+                <form class="waitlist-form">
+                    <input type="email" id="email-input" placeholder="enter_email_address" autocomplete="off">
+                    <button id="join-btn">Initialize</button>
+                </form>
+            </div>
+            <div id="waitlist-count" class="waitlist-counter">Pos: #Calculating...</div>
+        </div>
+
+        <!-- Social / Links -->
+        <div class="bento-item area-social">
+            <h3 style="color: var(--accent-tertiary);">GITHUB</h3>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="bento-item area-status">
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <span style="width: 10px; height: 10px; background: var(--accent-primary); border-radius: 50%; box-shadow: 0 0 10px var(--accent-primary);"></span>
+                <span style="font-family: var(--font-mono); font-size: 0.9rem;">Systems Operational</span>
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary);">
+                v.0.1.0-alpha
+            </div>
+        </div>
+    </main>
+
+    <script src="src/js/main.js"></script>
+</body>
+</html>
